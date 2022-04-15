@@ -1,3 +1,7 @@
-# Taskmanager
-# TaskManagerBackend
-# taskManagerBackend
+# Comment démarrer l'application
+
+
+
+```shell
+mvnw spring-boot:run
+```
