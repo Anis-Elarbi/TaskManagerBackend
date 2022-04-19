@@ -61,10 +61,10 @@ import static org.mockito.Mockito.doReturn;
     void updateTest(){
         Task taskToUpdate = new Task(1L,"Task1",false);
         doReturn(Optional.of(taskToUpdate)).when(repository).findById(taskToUpdate.getId());
-        doReturn(taskToUpdate).when(repository).save(taskToUpdate);
         taskToUpdate.setComplete(true);
+        doReturn(taskToUpdate).when(repository).save(taskToUpdate);
         Task updatedTask= taskService.update(1L,taskToUpdate);
-        Assertions.assertSame(updatedTask.isComplete(), taskToUpdate.isComplete(), "The Task returned was not the same as the mock");
+        Assertions.assertSame(taskToUpdate.isComplete(), updatedTask.isComplete(), "The Task returned was not the same as the mock");
 
 
     }
